@@ -1,0 +1,6 @@
+dist/
+node_modules/
+target/
+test/dist
+bundle.json
+.DS_Store
