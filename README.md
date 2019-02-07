@@ -4,6 +4,10 @@
 
 Builds under the v0.0.3 dev preview release of holochain-rust
 
+## Prerequisites
+
+[Holochain developer tools](https://developer.holochain.org/start.html)
+
 ## Run
 
 Terminal 1:
