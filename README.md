@@ -1,6 +1,18 @@
-# holochain-rust-todo
-Basic example using holochain-rust
+# holochain-todo-redux
+
+[Gatsby](https://github.com/gatsbyjs/gatsby)/React example using redux and [hc-redux-middleware](https://github.com/holochain/hc-redux-middleware) to communicate with holochain hApp [todo-list](https://github.com/willemolding/holochain-rust-todo).
 
 Builds under the v0.0.3 dev preview release of holochain-rust
 
-See the [accompanying article](https://medium.com/holochain/first-steps-writing-holochain-happs-with-rust-80ae111960e)
+## Run
+
+Terminal 1:
+
+`hc run`
+
+Terminal 2:
+
+```
+cd ui
+gatsby develop
+```
