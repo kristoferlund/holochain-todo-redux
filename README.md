@@ -8,11 +8,15 @@ Builds under the v0.0.3 dev preview release of holochain-rust
 
 Terminal 1:
 
-`hc run`
+```
+hc package
+hc run
+```
 
 Terminal 2:
 
 ```
 cd ui
+npm install
 gatsby develop
 ```
