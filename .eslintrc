@@ -1,0 +1,47 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+  ],
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "amd": true
+  },
+  "rules": {
+    "semi": ["error", "never"],
+    "object-curly-spacing": [
+      1,
+      "always",
+      {
+        "arraysInObjects": true,
+        "objectsInObjects": true
+      }
+    ],
+    "sort-imports": "warn",
+    "quotes": ["error", "single"],
+    "comma-dangle": ["error", "only-multiline"],
+    "no-var": "error",
+    "prefer-const": "error",
+    "no-const-assign": "error",
+    "object-shorthand": "error",
+    "prefer-destructuring": [
+      "error",
+      {
+        "array": true,
+        "object": true
+      },
+      {
+        "enforceForRenamedProperties": false
+      }
+    ]
+  }
+}

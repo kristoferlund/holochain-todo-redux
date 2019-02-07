@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-example-redux",
+  "name": "holochain-todo-redux",
   "private": true,
-  "description": "Gatsby example site that shows use of redux.",
-  "version": "1.0.0",
-  "author": "Scotty Eckenthal <scott.eckenthal@gmail.com>",
+  "description": "Gatsby example site using redux and hc-redux-middleware to communicate with holochain sample todo app.",
+  "version": "0.0.1",
+  "author": "Kristofer Lund <kristofer@fmckl.se>",
   "dependencies": {
     "@holochain/hc-redux-middleware": "^1.0.9",
     "@holochain/hc-web-client": "0.0.1",
@@ -12,6 +12,10 @@
     "react-dom": "^16.4.0",
     "react-redux": "5.0.5",
     "redux": "3.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.8.0",
+    "eslint-plugin-react": "^7.11.1"
   },
   "keywords": [
     "gatsby"
