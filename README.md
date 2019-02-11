@@ -4,6 +4,8 @@
 
 Builds under the v0.0.3 dev preview release of holochain-rust
 
+![img](https://user-images.githubusercontent.com/9698363/52568295-a427c380-2e0e-11e9-9b82-c07f23fda51d.png)
+
 ## Prerequisites
 
 [Holochain developer tools](https://developer.holochain.org/start.html)
