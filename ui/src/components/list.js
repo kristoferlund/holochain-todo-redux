@@ -3,6 +3,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { createHolochainAsyncAction } from '@holochain/hc-redux-middleware'
 
+let item_counter = 0
+
 class List extends React.Component {
   constructor () {
     super()
@@ -11,7 +13,7 @@ class List extends React.Component {
   }
 
   addItem () {
-    const { listId } = this.props
+    const { listAddress } = this.props
 
     const action = createHolochainAsyncAction(
       'test-instance',
@@ -21,26 +23,34 @@ class List extends React.Component {
     )
     this.props.dispatch(
       action.create({
-        list_item: { text: 'an item', completed: false },
-        list_addr: listId
+        list_item: { text: `An item ${++item_counter}`, completed: false },
+        list_addr: listAddress
       })
     )
   }
 
   render () {
-    const { listId } = this.props
+    const { listName } = this.props
 
     return (
-      <div>
-        id: {listId} <button onClick={this.addItem}>Add item</button>
+      <div className='cf'>
+        <div className='fl w-100 w-25-ns pv2'>{listName}</div>
+        <div className='fl w-100 w-25-ns pv2'>
+          <button onClick={this.addItem}>Add item</button>
+        </div>
       </div>
     )
   }
 }
 
 List.propTypes = {
-  listId: PropTypes.string.isRequired,
+  listAddress: PropTypes.string.isRequired,
+  listName: PropTypes.string.isRequired,
   dispatch: PropTypes.func.isRequired
 }
 
-export default connect()(List)
+const mapStateToProps = ({ lists }) => {
+  return { lists }
+}
+
+export default connect(mapStateToProps)(List)

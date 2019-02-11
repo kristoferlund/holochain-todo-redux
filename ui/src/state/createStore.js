@@ -21,7 +21,7 @@ if (typeof window !== 'undefined') {
   composeEnhancers = compose
 }
 
-const initialState = { lists: [] }
+const initialState = { connected: false, lists: [], list_items: [] }
 
 /* eslint-disable no-underscore-dangle */
 const createStore = () =>

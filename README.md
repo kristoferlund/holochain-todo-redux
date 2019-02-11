@@ -24,3 +24,14 @@ cd ui
 npm install
 gatsby develop
 ```
+
+## Todos
+
+- [ ] Tests are not working - fix
+- [ ] Add handling for checking items completed true/false
+- [ ] Add form to allow for other than dummy list item titles
+- [ ] Edit list name
+- [ ] Edit list item
+- [ ] User handling?
+- [ ] Share lists?
+- [x] Improve handling of duplicate entries

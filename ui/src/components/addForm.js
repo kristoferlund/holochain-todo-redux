@@ -35,12 +35,20 @@ class AddForm extends React.Component {
         list: { name: this.state.listName }
       })
     )
+    this.setState({
+      listName: ''
+    })
   }
 
   render () {
     return (
       <div>
-        List name: <input type='text' onChange={this.handleInputChange} />{' '}
+        List name:{' '}
+        <input
+          type='text'
+          onChange={this.handleInputChange}
+          value={this.state.listName}
+        />{' '}
         <button onClick={this.createList}>Create list</button>
       </div>
     )

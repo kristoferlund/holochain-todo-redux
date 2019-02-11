@@ -19,7 +19,7 @@ use hdk::{
     }
 };
 
- 
+
 define_zome! {
     entries: [
         entry!(
@@ -53,23 +53,23 @@ define_zome! {
             }
         )
     ]
- 
+
     genesis: || {
         Ok(())
     }
- 
+
 	functions: {
         // "main" is the name of the capability
         // "Public" is the access setting of the capability
         main (Public) {
             create_list: {
                 inputs: |list: List|,
-                outputs: |result: ZomeApiResult<Address>|,
+                outputs: |result: ZomeApiResult<CreateListResponse>|,
                 handler: handle_create_list
             }
             add_item: {
                 inputs: |list_item: ListItem, list_addr: HashString|,
-                outputs: |result: ZomeApiResult<Address>|,
+                outputs: |result: ZomeApiResult<AddItemResponse>|,
                 handler: handle_add_item
             }
             get_list: {
@@ -94,24 +94,49 @@ struct ListItem {
 }
 
 #[derive(Serialize, Deserialize, Debug, DefaultJson)]
+struct CreateListResponse {
+    list_addr: Address,
+    name: String
+}
+
+#[derive(Serialize, Deserialize, Debug, DefaultJson)]
 struct GetListResponse {
+    list_addr: Address,
     name: String,
     items: Vec<ListItem>
 }
 
-fn handle_create_list(list: List) -> ZomeApiResult<Address> {
+#[derive(Serialize, Deserialize, Debug, DefaultJson)]
+struct AddItemResponse {
+    list_addr: Address,
+    item_addr: Address,
+    text: String,
+    completed: bool
+}
+
+fn handle_create_list(list: List) -> ZomeApiResult<CreateListResponse> {
+    // Clone name to use for response
+    let list_name = list.name.clone();
+
     // define the entry
     let list_entry = Entry::App(
         "list".into(),
         list.into()
     );
 
-    // commit the entry and return the address
-	hdk::commit_entry(&list_entry)
+	let list_addr = hdk::commit_entry(&list_entry)?;
+    Ok(CreateListResponse{
+        list_addr: list_addr,
+        name: list_name
+    })
 }
 
 
-fn handle_add_item(list_item: ListItem, list_addr: HashString) -> ZomeApiResult<Address> {
+fn handle_add_item(list_item: ListItem, list_addr: HashString) -> ZomeApiResult<AddItemResponse> {
+
+    let item_text = list_item.text.clone();
+    let item_completed = list_item.completed.clone();
+
     // define the entry
     let list_item_entry = Entry::App(
         "listItem".into(),
@@ -120,7 +145,12 @@ fn handle_add_item(list_item: ListItem, list_addr: HashString) -> ZomeApiResult<
 
 	let item_addr = hdk::commit_entry(&list_item_entry)?; // commit the list item
 	hdk::link_entries(&list_addr, &item_addr, "items")?; // if successful, link to list address
-	Ok(item_addr)
+    Ok(AddItemResponse{
+        list_addr: list_addr,
+        item_addr: item_addr,
+        text: item_text,
+        completed: item_completed
+    })
 }
 
 
@@ -140,6 +170,7 @@ fn handle_get_list(list_addr: HashString) -> ZomeApiResult<GetListResponse> {
 
     // if this was successful then return the list items
     Ok(GetListResponse{
+        list_addr: list_addr,
         name: list.name,
         items: list_items
     })
@@ -171,4 +202,3 @@ pub fn get_as_type<
 }
 
 /*=====  End of Helper functions  ======*/
-
