@@ -1,14 +1,14 @@
 {
-  "name": "todo-list",
-  "description": "A Holochain app",
+  "name": "holochain-todo-redux",
+  "description": "Example using Gatsby/React/Redux/hc-redux-middleware to communicate with holochain sample todo app.",
   "authors": [
     {
-      "indentifier": "Author Name <author@name.com>",
+      "indentifier": "Kristofer Lund <kristofer@fmckl.se>",
       "public_key_source": "",
       "signature": ""
     }
   ],
-  "version": "0.1.0",
+  "version": "0.0.1",
   "dht": {},
   "properties": null
 }

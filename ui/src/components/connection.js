@@ -4,9 +4,25 @@ import { connect } from 'react-redux'
 
 const Connection = ({ connected }) => {
   if (connected) {
-    return <p className='lh-copy'>Holochain: ✅ Connected</p>
+    return (
+      <p className='lh-copy'>
+        Holochain:{' '}
+        <span role='img' aria-label='Checkmark'>
+          ✅
+        </span>{' '}
+        Connected
+      </p>
+    )
   } else {
-    return <p className='lh-copy'>Holochain: 🔴 Disconnected</p>
+    return (
+      <p className='lh-copy'>
+        Holochain:{' '}
+        <span role='img' aria-label='Stop'>
+          🔴
+        </span>{' '}
+        Disconnected
+      </p>
+    )
   }
 }
 

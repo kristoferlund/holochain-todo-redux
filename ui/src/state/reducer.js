@@ -11,7 +11,7 @@ const reducer = (state, action) => {
     }
 
     case 'test-instance/lists/main/create_list_SUCCESS': {
-      if (savedListIndex == -1) {
+      if (savedListIndex === -1) {
         return {
           ...state,
           lists: [...action.payload, ...state.lists]
