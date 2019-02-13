@@ -15,7 +15,7 @@ Builds under the v0.0.3 dev preview release of holochain-rust
 Terminal 1:
 
 ```
-hc run --package
+hc run
 ```
 
 Terminal 2:
