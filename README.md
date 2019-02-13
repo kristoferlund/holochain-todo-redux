@@ -23,7 +23,7 @@ Terminal 2:
 ```
 cd ui
 npm install
-gatsby develop
+npm run develop
 ```
 
 ## Todos
