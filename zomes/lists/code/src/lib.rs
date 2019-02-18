@@ -1,22 +1,24 @@
 #![feature(try_from)]
-use std::convert::TryFrom;
 #[macro_use]
 extern crate hdk;
+extern crate serde;
 #[macro_use]
 extern crate serde_derive;
+extern crate serde_json;
 #[macro_use]
 extern crate holochain_core_types_derive;
 
+use core::convert::TryFrom;
 use hdk::{
-    error::{ZomeApiResult, ZomeApiError},
-    holochain_core_types::{
-        hash::HashString,
-        error::HolochainError,
-        dna::entry_types::Sharing,
-        json::JsonString,
-        cas::content::Address,
-        entry::{AppEntryValue, Entry},
-    }
+    error::ZomeApiResult,error::ZomeApiError
+};
+use hdk::holochain_core_types::{
+    cas::content::Address, 
+    error::HolochainError, 
+    json::JsonString, 
+    hash::HashString,
+    dna::entry_types::Sharing,
+   	entry::{AppEntryValue, Entry},
 };
 
 
@@ -58,27 +60,32 @@ define_zome! {
         Ok(())
     }
 
-	functions: {
-        // "main" is the name of the capability
-        // "Public" is the access setting of the capability
-        main (Public) {
-            create_list: {
-                inputs: |list: List|,
-                outputs: |result: ZomeApiResult<CreateListResponse>|,
-                handler: handle_create_list
-            }
-            add_item: {
-                inputs: |list_item: ListItem, list_addr: HashString|,
-                outputs: |result: ZomeApiResult<AddItemResponse>|,
-                handler: handle_add_item
-            }
-            get_list: {
-                inputs: |list_addr: HashString|,
-                outputs: |result: ZomeApiResult<GetListResponse>|,
-                handler: handle_get_list
-            }
+	functions: [
+        create_list: {
+            inputs: |list: List|,
+            outputs: |result: ZomeApiResult<CreateListResponse>|,
+            handler: handle_create_list
         }
-    }
+        add_item: {
+            inputs: |list_item: ListItem, list_addr: HashString|,
+            outputs: |result: ZomeApiResult<AddItemResponse>|,
+            handler: handle_add_item
+        }
+        get_list: {
+            inputs: |list_addr: HashString|,
+            outputs: |result: ZomeApiResult<GetListResponse>|,
+            handler: handle_get_list
+        }
+    ]
+
+	 traits: {
+        hc_public [
+            create_list, 
+            add_item, 
+            get_list
+        ]
+	}
+
 }
 
 

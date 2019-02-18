@@ -2,7 +2,7 @@
 
 [Gatsby](https://github.com/gatsbyjs/gatsby)/React example using redux and [hc-redux-middleware](https://github.com/holochain/hc-redux-middleware) to communicate with holochain hApp [todo-list](https://github.com/willemolding/holochain-rust-todo).
 
-Builds under the v0.0.3 dev preview release of holochain-rust
+Builds under the v0.0.4-alpha release of holochain-rust
 
 ![img](https://user-images.githubusercontent.com/9698363/52596910-c8f15a80-2e51-11e9-94cb-11bca428a65b.gif)
 

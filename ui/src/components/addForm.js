@@ -27,7 +27,6 @@ class AddForm extends React.Component {
     const action = createHolochainAsyncAction(
       'test-instance',
       'lists',
-      'main',
       'create_list'
     )
     this.props.dispatch(

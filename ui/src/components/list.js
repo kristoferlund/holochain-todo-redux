@@ -18,7 +18,6 @@ class List extends React.Component {
     const action = createHolochainAsyncAction(
       'test-instance',
       'lists',
-      'main',
       'add_item'
     )
     this.props.dispatch(

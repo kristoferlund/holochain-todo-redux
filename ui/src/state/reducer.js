@@ -10,7 +10,7 @@ const reducer = (state, action) => {
       }
     }
 
-    case 'test-instance/lists/main/create_list_SUCCESS': {
+    case 'test-instance/lists/create_list_SUCCESS': {
       if (savedListIndex === -1) {
         return {
           ...state,
@@ -28,7 +28,7 @@ const reducer = (state, action) => {
       }
     }
 
-    case 'test-instance/lists/main/add_item_SUCCESS': {
+    case 'test-instance/lists/add_item_SUCCESS': {
       return {
         ...state,
         list_items: [...action.payload, ...state.list_items]

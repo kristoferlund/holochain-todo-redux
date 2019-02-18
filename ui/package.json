@@ -2,11 +2,11 @@
   "name": "holochain-todo-redux",
   "private": true,
   "description": "Gatsby example site using redux and hc-redux-middleware to communicate with holochain sample todo app.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Kristofer Lund <kristofer@fmckl.se>",
   "dependencies": {
     "@holochain/hc-redux-middleware": "^1.0.9",
-    "@holochain/hc-web-client": "0.0.1",
+    "@holochain/hc-web-client": "0.1.0",
     "gatsby": "^2.0.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",

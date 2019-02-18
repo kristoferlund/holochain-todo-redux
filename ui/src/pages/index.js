@@ -11,7 +11,7 @@ const Home = () => (
       <a href='https://github.com/holochain/hc-redux-middleware'>
         hc-redux-middleware
       </a>{' '}
-      to communicate with holochain hApp (
+      to communicate with holochain hApp based on (
       <a href='https://github.com/willemolding/holochain-rust-todo'>
         todo-list
       </a>
