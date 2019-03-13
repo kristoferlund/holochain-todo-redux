@@ -1,5 +1,7 @@
 # holochain-todo-redux
 
+🤖 **This repo is no longer maintained and updated to support holochain beyond version v0.0.4-alpha**
+
 [Gatsby](https://github.com/gatsbyjs/gatsby)/React example using redux and [hc-redux-middleware](https://github.com/holochain/hc-redux-middleware) to communicate with holochain hApp [todo-list](https://github.com/willemolding/holochain-rust-todo).
 
 Builds under the v0.0.4-alpha release of holochain-rust
